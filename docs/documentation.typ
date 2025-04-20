@@ -85,7 +85,7 @@ Principais elementos da implementação em Rust:
 
 #box()[
 ```Rust
-derive(Debug, PartialEq)
+#[derive(Debug, PartialEq)]
 enum Estado {
     S0, S1, S2,
     Vitoria, Derrota
