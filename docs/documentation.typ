@@ -2,8 +2,7 @@
 #set heading(numbering: "1.")
 
 = Autômato Finito Determinístico para Jogo de Adivinhação
-Autor: Seu Nome  
-Data: `[datetime]`  
+
 
 == Introdução
 Este documento descreve a modelagem de um jogo de adivinhação numérica usando um Autômato Finito Determinístico (AFD). O sistema foi implementado em Rust e segue regras específicas de transição entre estados.
