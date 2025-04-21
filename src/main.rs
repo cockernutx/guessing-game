@@ -1,4 +1,5 @@
 use std::io;
+use rand::prelude::*;
 
 #[derive(Debug, PartialEq)]
 enum State {
@@ -10,7 +11,9 @@ enum State {
 }
 
 fn main() {
-    let secret_number = 7;
+    let mut rng = rand::rng();
+
+    let secret_number = rng.random();
     let mut current_state = State::S0;
 
     println!("Welcome to the guessing game!");
