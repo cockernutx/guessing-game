@@ -13,7 +13,7 @@ enum State {
 fn main() {
     let mut rng = rand::rng();
 
-    let secret_number = rng.random_range(0..10);
+    let secret_number = rng.random_range(1..10);
     let mut current_state = State::S0;
 
     println!("Welcome to the guessing game!");
