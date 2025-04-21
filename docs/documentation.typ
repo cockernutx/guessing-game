@@ -34,7 +34,7 @@ Onde:
   [Alfabeto (Σ): "correto", "alto", "baixo"],
   [Função de transição (δ): Tabela 1],
   [Estado inicial (q₀): S0],
-  [Estados finais (F): Vitória]
+  [Estados finais (F): {Vitória, Derrota}]
 )
 
 #import "@preview/fletcher:0.5.7" as fletcher: diagram, node, edge
@@ -50,18 +50,18 @@ Onde:
     node((0, 0), "S0", name: <S0>, fill: luma(98%)),
     node((2, 0), "S1", name: <S1>, fill: luma(98%)),
     node((4, 0), "S2", name: <S2>, fill: luma(98%)),
-    node((3, -2), "S3", name: <S3>, fill: blue.lighten(90%), extrude: (-2.5, 0)),
-    node((6, 0), "S4", name: <S4>, fill: red.lighten(90%), extrude: (-2.5, 0)),
+    node((3, -2), "Vitória", name: <V>, fill: blue.lighten(90%), extrude: (-2.5, 0)),
+    node((6, 0), "Derrota", name: <D>, fill: red.lighten(90%), extrude: (-2.5, 0)),
     
     // Transições principais
     edge(`alto/baixo`, "->", vertices: (<S0>, <S1>)),
     edge(`alto/baixo`, "->", vertices: (<S1>, <S2>)),
-    edge(`alto/baixo`, "->", vertices: (<S2>, <S4>)),
+    edge(`alto/baixo`, "->", vertices: (<S2>, <D>)),
     
     // Transições de vitória
-   edge(`correto`, "->", bend: -30deg, vertices: (<S0>, <S3>)),
-    edge(vertices:(<S1>, <S3>), `correto`, "->", bend: -30deg),
-    edge(vertices: (<S2>, <S3>,), `correto`, "->", bend: -30deg),
+   edge(`correto`, "->", bend: -30deg, vertices: (<S0>, <V>)),
+    edge(vertices:(<S1>, <V>), `correto`, "->", bend: -30deg),
+    edge(vertices: (<S2>, <V>,), `correto`, "->", bend: -30deg),
 )
 
 
